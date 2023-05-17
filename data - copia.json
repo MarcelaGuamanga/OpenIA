@@ -1,0 +1,37 @@
+{
+  "historias_de_usuario": [
+     "Como usuario quiero poder registrarme en la plataforma para acceder a los servicios.",
+     "Como usuario quiero poder buscar productos por categoria para encontrar lo que necesito.",
+     "Como usuario quiero poder pagar por mis compras en linea para no tener que ir a una tienda fisica."
+  ],
+  "perfiles_de_programadores": [
+    {
+      "nombre": "Juan Perez",
+      "experiencia": "5 años",
+      "habilidades": ["programacion en Java", "diseño de bases de datos"],
+      "lenguajes de programacion": ["Java", "Python"],
+      "tipo": "backend"
+    },
+    {
+      "nombre": "Ana Gomez",
+      "experiencia": "3 años",
+      "habilidades": ["programacion en Python", "analisis de datos"],
+      "lenguajes de programacion": ["Python", "R"],
+      "tipo": "frontend"
+    },
+    {
+      "nombre": "Pedro Garcia",
+      "experiencia": "8 años",
+      "habilidades": ["programacion en C++", "desarrollo de aplicaciones moviles"],
+      "lenguajes de programacion": ["C++", "Java"],
+      "tipo": "fullstack"
+    },
+    {
+      "nombre": "Camila Henao",
+      "experiencia": "1 año",
+      "habilidades": ["programacion en C++", "desarrollo de aplicaciones moviles"],
+      "lenguajes de programacion": ["C++", "Java"],
+      "tipo": "fullstack"
+    }
+  ]
+}
