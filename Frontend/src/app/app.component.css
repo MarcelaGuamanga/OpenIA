@@ -1,0 +1,25 @@
+.container-HU {
+    background-color: #d1e4e6;
+    margin-left: 1%;
+    margin-right: 0.5%;
+    width: 100%;
+    padding: 1%;
+}
+.container-Prog {
+    background-color:#dce8e7;
+    margin-right: 1%;
+    margin-left: 0.5%;
+    padding: 1%;
+}
+.title-HU {
+    padding-bottom: 1%;
+    color: #749496;
+}
+.title-Prog {
+    color: #374342;
+    padding-bottom: 1%;
+}
+.header-style {
+    margin: 1%;
+    text-align: -webkit-center;
+}
