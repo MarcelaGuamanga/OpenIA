@@ -1,18 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule} from '@angular/common/Http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ComponentHUComponent } from './component-hu/component-hu.component';
+import { ComponentProgrammersComponent } from './component-programmers/component-programmers.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ComponentHUComponent,
+    ComponentProgrammersComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
