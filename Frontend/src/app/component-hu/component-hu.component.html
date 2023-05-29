@@ -1,18 +1,19 @@
 <div class="row">
     <div class="col">
-        <h5 class="title-HU">Descripción de la HU</h5>
+        <h5>Descripción de la HU</h5>
         <div class="input-group input-group-sm mb-3">
-          <textarea class="form-control" id="floatingTextarea" [(ngModel)]="description"></textarea>
+          <textarea class="form-control text-area-style" id="floatingTextarea" [(ngModel)]="description"></textarea>
         </div>
         <button type="button" class="btn btn-secondary" style="float:right;" (click)="add()">Agregar</button>
     </div>
 </div>
-<div class="row" *ngFor="let item of HU; index as i">
-    <div class="col">
-        <h5>Historia de usuario {{i}}</h5>
+<h3 *ngIf="HU.length>0" class="text-center mb title-HU">Historias de usuario</h3>
+<div class="row container-results border border-dark rounded mb-3 mx-2" *ngFor="let item of HU; index as i" >
+    <div class="col-10 text-break p-2">
+        <h5>Historia de usuario {{i+1}}</h5>
         <p> {{item}} </p>
     </div>
-    <div class="col">
-        <button type="button" class="btn btn-danger" style="float:right;" (click)="delete(i)">Eliminar</button>
+    <div class="col-2 d-flex  justify-content-center p-0 m-0">
+        <button type="button" class="btn btn-danger p-0 m-0" style="height: 100%; width: 100%;" (click)="delete(i)">Eliminar</button>
     </div>
 </div>

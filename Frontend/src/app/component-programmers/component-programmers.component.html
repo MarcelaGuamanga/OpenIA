@@ -1,39 +1,40 @@
 <div class="row">
     <div class="col">
-        <h5 class="title-Prog">Perfil del programador</h5>
-        <div class="input-group input-group-sm mb-3">
-          <span class="input-group-text" id="inputGroup-sizing-sm">Nombre completo: </span>
-          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="programmer.name">
+        <h5>Perfil del programador</h5>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="floatingName" placeholder="Leave a comment here" [(ngModel)]="programmer.name">
+          <label for="floatingName">Nombre completo: </label>
         </div>
-        <div class="input-group input-group-sm mb-3">
-          <span class="input-group-text" id="inputGroup-sizing-sm">Años de experiencia: </span>
-          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="programmer.experience">
+        <div class="form-floating  mb-3">
+          <input type="text" class="form-control" id="floatingExperience" placeholder="Leave a comment here" [(ngModel)]="programmer.experience">
+          <label for="floatingExperience">Años de experiencia: </label>
         </div>
-        <div class="input-group input-group-sm mb-3">
-          <span class="input-group-text" id="inputGroup-sizing-sm">Habilidades: </span>
-          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="programmer.skills">
+        <div class="form-floating  mb-3">
+          <input type="text" class="form-control" id="floatinSkills" placeholder="Leave a comment here" [(ngModel)]="programmer.skills">
+          <label for="floatinSkills">Habilidades: </label>
         </div>
-        <div class="input-group input-group-sm mb-3">
-          <span class="input-group-text" id="inputGroup-sizing-sm">Lenguajes de programación: </span>
-          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="programmer.programmingLanguages">
+        <div class="form-floating  mb-3">
+          <input type="text" class="form-control" id="floatingLenguages" placeholder="Leave a comment here" [(ngModel)]="programmer.programmingLanguages">
+          <label for="floatingLenguages">Lenguajes de programación: </label>
         </div>
-        <div class="input-group input-group-sm mb-3">
-          <span class="input-group-text" id="inputGroup-sizing-sm">Tipo de programador: </span>
-          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="programmer.type">
+        <div class="form-floating  mb-3">
+          <input type="text" class="form-control" id="floatingType" placeholder="Leave a comment here" [(ngModel)]="programmer.type">
+          <label for="floatingType">Tipo de programador: </label>
         </div>
         <button type="button" class="btn btn-secondary" style="float:right;" (click)="addProgrammer()">Agregar</button>
     </div>
 </div>
-<div class="row" *ngFor="let item of programmers; index as i">
-    <div class="col">
-        <h5>Perfil programador {{i}}</h5>
+<h3 *ngIf="programmers.length>0" class="text-center mb-3">Programadores</h3>
+<div class="row container-results border border-dark rounded mb-3 mx-2" *ngFor="let item of programmers; index as i">
+    <div class="col-10 text-break p-2">
+        <h5>Perfil del programador {{i+1}}</h5>
         <p> Nombre: {{item.name}} </p>
         <p> Años de experiencia: {{item.experience}} </p>
         <p> Habilidades: {{item.skills}} </p>
         <p> Lenguajes de programación: {{item.programmingLanguages}} </p>
         <p> Tipo de programador: {{item.type}} </p>
     </div>
-    <div class="col">
-        <button type="button" class="btn btn-danger" style="float:right;" (click)="delete(i)">Eliminar</button>
+    <div class="col-2 d-flex  justify-content-center p-0 m-0">
+        <button type="button" class="btn btn-danger p-0 m-0" style="height: 100%; width: 100%;" (click)="delete(i)">Eliminar</button>
     </div>
 </div>

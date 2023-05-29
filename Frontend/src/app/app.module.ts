@@ -19,7 +19,13 @@ import { ComponentProgrammersComponent } from './component-programmers/component
     HttpClientModule,
     FormsModule
   ],
+  // entryComponents: [
+  //   ComponentHUComponent,
+  //   ComponentProgrammersComponent
+  // ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

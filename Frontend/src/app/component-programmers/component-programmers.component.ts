@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input} from '@angular/core';
 
 type ProgrammerPerfil = {
   name : string,
@@ -16,7 +16,7 @@ type ProgrammerPerfil = {
 
 export class ComponentProgrammersComponent {
 
-  programmers : Array<ProgrammerPerfil> = []
+  @Input() programmers : Array<ProgrammerPerfil> = []
 
   programmer: ProgrammerPerfil = {
     name : "",
