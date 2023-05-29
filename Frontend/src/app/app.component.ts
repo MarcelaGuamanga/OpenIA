@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppService } from './services/app.service';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +10,26 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Frontend';
 
-  calculateResponse(historiasUsuario : Array<string>, programmerProfiles:any){
-    console.log(historiasUsuario)
-    console.log(programmerProfiles)
+  dataResponseOpenIA : any = {}
+  dataRequestOpenIA :  any = {}
+
+  constructor( private appService : AppService) {}
+
+  calculateResponse(userStories : Array<string>, programmerProfiles:any){
+
+    this.dataRequestOpenIA = {
+      "user_stories" : userStories,
+      "programmer_profiles": programmerProfiles
+    }
+
+    if(userStories.length == 0 || programmerProfiles.length == 0){
+
+    } else {
+      this.appService.postOpenIA(this.dataRequestOpenIA).subscribe( data => {
+        this.dataResponseOpenIA = data
+      })
+    }
   }
 
+  
 }

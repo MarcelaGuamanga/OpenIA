@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 
-type Programmer = {
+type ProgrammerPerfil = {
   name : string,
-  yearsExperience : number,
+  experience : number,
   skills :  Array<string>,
-  programmingLanguages :  Array<string>
+  programmingLanguages :  Array<string>,
+  type : string
 }
 
 @Component({
@@ -15,33 +16,64 @@ type Programmer = {
 
 export class ComponentProgrammersComponent {
 
-  programmers : Array<Programmer> = []
+  programmers : Array<ProgrammerPerfil> = []
 
-  programmer: Programmer = {
+  programmer: ProgrammerPerfil = {
     name : "",
-    yearsExperience : 0,
+    experience : 0,
     skills :  [],
-    programmingLanguages : []
+    programmingLanguages : [],
+    type : ""
   }
 
   addProgrammer(){
-    this.programmers.push(this.programmer)
+    if(this.validateName(this.programmer.name) &&  this.validateYearsExperience(this.programmer.experience)
+    && this.validateSkills(this.programmer.skills) && this.validateProgrammingLanguages(this.programmer.programmingLanguages)
+    && this.validateProgrammerType(this.programmer.type)){
+      this.programmers.push(this.programmer)
+    }
+    this.programmer = {
+      name : "",
+      experience : 0,
+      skills :  [],
+      programmingLanguages : [],
+      type : ""
+    }
   }
 
-  validateName(name:string){
-    
+  validateName(name:any): boolean{
+    if(name == Number || name == ""){
+      return false
+    }
+    return true
   }
 
-  validateYearsExperience(){
-    
+  validateYearsExperience(years:any): boolean{
+    if(years == String || years >= 23){
+      return false
+    }
+    return true
   }
 
-  validateSkills(){
-    
+  validateSkills(skills:any){
+    if(skills == ""){
+      return false
+    }
+    return true
   }
 
-  validateProgrammingLanguages(){
+  validateProgrammingLanguages(lenguages:any){
+    if(lenguages == ""){
+      return false
+    }
+    return true
+  }
 
+  validateProgrammerType(type:any){
+    if(type == ""){
+      return false
+    }
+    return true
   }
 
   delete(i:number){

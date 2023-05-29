@@ -7,7 +7,7 @@
         </div>
         <div class="input-group input-group-sm mb-3">
           <span class="input-group-text" id="inputGroup-sizing-sm">Años de experiencia: </span>
-          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="programmer.yearsExperience">
+          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="programmer.experience">
         </div>
         <div class="input-group input-group-sm mb-3">
           <span class="input-group-text" id="inputGroup-sizing-sm">Habilidades: </span>
@@ -17,6 +17,10 @@
           <span class="input-group-text" id="inputGroup-sizing-sm">Lenguajes de programación: </span>
           <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="programmer.programmingLanguages">
         </div>
+        <div class="input-group input-group-sm mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-sm">Tipo de programador: </span>
+          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="programmer.type">
+        </div>
         <button type="button" class="btn btn-secondary" style="float:right;" (click)="addProgrammer()">Agregar</button>
     </div>
 </div>
@@ -24,9 +28,10 @@
     <div class="col">
         <h5>Perfil programador {{i}}</h5>
         <p> Nombre: {{item.name}} </p>
-        <p> Años de experiencia: {{item.yearsExperience}} </p>
+        <p> Años de experiencia: {{item.experience}} </p>
         <p> Habilidades: {{item.skills}} </p>
         <p> Lenguajes de programación: {{item.programmingLanguages}} </p>
+        <p> Tipo de programador: {{item.type}} </p>
     </div>
     <div class="col">
         <button type="button" class="btn btn-danger" style="float:right;" (click)="delete(i)">Eliminar</button>
