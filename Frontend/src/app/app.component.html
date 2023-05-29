@@ -13,4 +13,13 @@
     </div>
     <button type="button" class="btn btn-success" (click)="calculateResponse(HUS.HU, ProgrammerProfiles.programmers)">Relacionar HU con los programadores</button>
   </div>
+  <div *ngIf="resultado" class="row">
+    <h3 style="margin-top: 2%;">Resultado </h3>
+    <ul class="list-group list-group-flush" style="margin-bottom: 2%;">
+      <li class="list-group-item" *ngFor="let item of dataResponseOpenIA; index as i">
+        <p><strong>Programador: </strong> {{item.programador}} </p>
+        <p><strong>Historia: </strong> {{item.historia_usuario}}</p>
+      </li>
+    </ul>
+  </div>
 </div>

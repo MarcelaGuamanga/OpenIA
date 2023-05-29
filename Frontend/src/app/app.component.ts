@@ -10,8 +10,9 @@ import { AppService } from './services/app.service';
 export class AppComponent {
   title = 'Frontend';
 
-  dataResponseOpenIA : any = {}
-  dataRequestOpenIA :  any = {}
+  dataResponseOpenIA : any;
+  dataRequestOpenIA :  any = {};
+  resultado = false;
 
   constructor( private appService : AppService) {}
 
@@ -26,8 +27,9 @@ export class AppComponent {
 
     } else {
       this.appService.postOpenIA(this.dataRequestOpenIA).subscribe( data => {
-        this.dataResponseOpenIA = data
-      })
+        this.dataResponseOpenIA = Object.values(data);
+      });
+      this.resultado = true;
     }
   }
 
