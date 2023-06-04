@@ -59,12 +59,22 @@ export class ComponentProgrammersComponent {
     if(skills == ""){
       return false
     }
+    this.programmer.skills = []
+    const splitSkills = skills.split(",")
+    for (const element of splitSkills){
+      this.programmer.skills.push(element.trim())
+    }
     return true
   }
 
   validateProgrammingLanguages(lenguages:any){
     if(lenguages == ""){
       return false
+    }
+    this.programmer.programmingLanguages = []
+    const splitLanguages = lenguages.split(",")
+    for (const element of splitLanguages){
+      this.programmer.programmingLanguages.push(element.trim())
     }
     return true
   }
