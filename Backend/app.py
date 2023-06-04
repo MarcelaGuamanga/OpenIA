@@ -4,7 +4,7 @@ import json
 import openai
 
 # Configure OpenAI API key
-openai.api_key = "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"
+openai.api_key = "clave"
 
 # Initialize Flask app
 app = Flask(__name__)
