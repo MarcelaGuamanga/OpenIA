@@ -4,7 +4,7 @@ import json
 import openai
 
 # Configure OpenAI API key
-openai.api_key = "clave"
+openai.api_key = "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"
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -37,25 +37,27 @@ def process():
         prompt += "- " + profile["name"] + " programador " + profile["type"] + " con experiencia de " + yearsExperience + "años y habilidades en " + ", ".join(profile["skills"]) + " y lenguajes de programación en " + ", ".join(profile["programmingLanguages"]) + "\n"
 
     #Add question to prompt
-    prompt += "\nEscoge el mejor programador candidato para implementar cada historia de usuario. Output en formato json: json con una lista de objetos donde cada objeto tiene una clave programador con valor el nombre del programador y una clave historia_usuario con valor la historia de usuario"
+    prompt += "\nEscoge el mejor programador candidato de acuerdo a su perfil para implementar cada historia de usuario, ten en cuenta si a este programador ya le haz asignado una historia de usuario.Forma tu respuesta como una lista de objetos json con las siguientes claves: La primera clave sera historia_usuario con valor numero historia de usuario, la segunda clave programadores_compatibilidad tendra como valor un parrafo con los nombres de los programadores con su porcentaje de compatibilidad frente a la historia de usuario, los porcentajes deben variar teniendo en cuenta años de experiencia y habilidades, y la tercera clave programador_elegido tendra como valor el nombre del programador elegido.Haz tu respuesta lo mas corta posible"
 
     print("prompt que se le va a enviar a la OpenIA\n",prompt)
     # search_model = f"text-davinci-003"
-    response = openai.Completion.create(
-        prompt=prompt,
+    response = connectionOpenIA(prompt)
+
+    best_match = response.choices[0].text
+    print("respuesta IA",best_match[1:])
+    json_object = json.loads(best_match[1:])
+    return json_object
+
+def connectionOpenIA(message:str):
+    responseOpenIA = openai.Completion.create(
+        prompt=message,
         max_tokens=1024,
         n=1,
         stop=None,
         temperature=0,
         model="text-davinci-003",
     )
-
-    best_match = response.choices[0].text
-    print("respuesta IA", best_match)
-    json_object = json.loads(best_match[1:])
-    print("respuesta IA json", json_object)
-    # Response Open IA
-    return json_object
+    return responseOpenIA
 
 if __name__ == "__main__":
     app.run(debug=True)
