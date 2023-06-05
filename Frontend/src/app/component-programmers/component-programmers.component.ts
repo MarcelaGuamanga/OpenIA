@@ -49,7 +49,7 @@ export class ComponentProgrammersComponent {
   }
 
   validateYearsExperience(years:any): boolean{
-    if(years == String || years >= 23){
+    if(years == String || years < 0 || years >= 23){
       return false
     }
     return true

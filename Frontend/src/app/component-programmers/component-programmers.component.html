@@ -9,13 +9,22 @@
           <input type="text" class="form-control" id="floatingExperience" placeholder="" [(ngModel)]="programmer.experience">
           <label for="floatingExperience">Años de experiencia: </label>
         </div>
+        <div class="mb-3 text-muted">
+          <p><small><i class="bi bi-exclamation-circle"></i> Escribe cada habilidad separandolas por comas ","</small></p>
+        </div>
         <div class="form-floating  mb-3">
           <input type="text" class="form-control" id="floatinSkills" placeholder="" [(ngModel)]="programmer.skills">
           <label for="floatinSkills">Habilidades: </label>
         </div>
+        <div class="mb-3 text-muted">
+          <p><small><i class="bi bi-exclamation-circle"></i> Escribe los lenguajes separandolos por comas ","</small></p>
+        </div>
         <div class="form-floating  mb-3">
           <input type="text" class="form-control" id="floatingLenguages" placeholder="" [(ngModel)]="programmer.programmingLanguages">
           <label for="floatingLenguages">Lenguajes de programación: </label>
+        </div>
+        <div class="mb-3 text-muted">
+          <p><small><i class="bi bi-exclamation-circle"></i> Tipo programador Ej: Backend, Devops, Frontend, Data scientist, etc</small></p>
         </div>
         <div class="form-floating  mb-3">
           <input type="text" class="form-control" id="floatingType" placeholder="" [(ngModel)]="programmer.type">

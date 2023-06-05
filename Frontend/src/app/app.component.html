@@ -22,12 +22,17 @@
         <app-component-programmers #ProgrammerProfiles [programmers]="programmerList"></app-component-programmers>
       </div>
     </div>
+    <div *ngIf="!isDisplayedLoading" class="text-center my-2">
+      <h4> Cargando...   </h4>
+      <div class="spinner-border" role="status"></div>
+    </div>
     <div *ngIf="resultado" class="row">
       <h3 style="margin-top: 2%;">Resultado </h3>
       <ul class="list-group list-group-flush" style="margin-bottom: 2%;">
         <li class="list-group-item" *ngFor="let item of dataResponseOpenIA; index as i">
-          <p><strong>Programador: </strong> {{item.programador}} </p>
           <p><strong>Historia: </strong> {{item.historia_usuario}}</p>
+          <p><strong>Programador: </strong> {{item.programador_elegido}}</p>
+          <p><strong>Compatibilidad: </strong> {{item.programadores_compatibilidad}}</p>
         </li>
       </ul>
     </div>
