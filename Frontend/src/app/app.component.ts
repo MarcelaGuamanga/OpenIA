@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { AppService } from './services/app.service';
-import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -22,14 +21,13 @@ export class AppComponent {
   constructor( private appService : AppService) {}
 
   calculateResponse(userStories : Array<string>, programmerProfiles:any){
+    this.isDisplayedLoading = false
     this.dataRequestOpenIA = {
       "user_stories" : userStories,
       "programmer_profiles": programmerProfiles
     }
     if(userStories.length != 0 && programmerProfiles.length != 0){
-      this.appService.postOpenIA(this.dataRequestOpenIA).pipe(
-        tap(() => (this.isDisplayedLoading = false)),
-      ).subscribe( data => {
+      this.appService.postOpenIA(this.dataRequestOpenIA).subscribe( data => {
         this.dataResponseOpenIA = Object.values(data);
         this.isDisplayedLoading = true;
       });
