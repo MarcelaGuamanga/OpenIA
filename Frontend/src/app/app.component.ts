@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AppService } from './services/app.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-root',
@@ -12,10 +13,10 @@ export class AppComponent {
 
   dataResponseOpenIA : any;
   dataRequestOpenIA :  any = {};
-  resultado = false;
+  result = false;
   programmerList: any = []
   HUList: any =[]
-
+  messageError = '';
   isDisplayedLoading = true;
 
   constructor( private appService : AppService) {}
@@ -30,11 +31,21 @@ export class AppComponent {
       this.appService.postOpenIA(this.dataRequestOpenIA).subscribe( data => {
         this.dataResponseOpenIA = Object.values(data);
         this.isDisplayedLoading = true;
+      }, (errorService)=>{
+        console.log(errorService);
+        this.messageError = errorService.message;
+        this.modalError(this.messageError)
       });
-      this.resultado = true;
+      this.result = true;
       this.programmerList = [];
       this.HUList = [];
     }
+  }
+
+  modalError(e:string){
+    Swal.fire('Ha ocurrido un error',e+ '. Por favor vuelve a intentarlo','error');
+    this.isDisplayedLoading = true;
+    this.result = false;
   }
 
 }
