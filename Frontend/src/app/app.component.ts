@@ -32,7 +32,6 @@ export class AppComponent {
         this.dataResponseOpenIA = Object.values(data);
         this.isDisplayedLoading = true;
       }, (errorService)=>{
-        console.log(errorService);
         this.messageError = errorService.message;
         this.modalError(this.messageError)
       });
@@ -43,7 +42,7 @@ export class AppComponent {
   }
 
   modalError(e:string){
-    Swal.fire('Ha ocurrido un error',e+ '. Por favor vuelve a intentarlo','error');
+    Swal.fire('Ha ocurrido un error','Por favor vuelve a intentarlo','error');
     this.isDisplayedLoading = true;
     this.result = false;
   }
