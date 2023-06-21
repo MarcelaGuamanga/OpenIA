@@ -1,4 +1,4 @@
-# OpenIA
+# ChatGPT
 
 ## Frontend
 
