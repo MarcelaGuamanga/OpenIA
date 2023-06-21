@@ -34,18 +34,21 @@ def process():
     prompt += "\nPerfiles de programadores:\n"
     for profile in programmer_profiles:
         yearsExperience = str(profile["experience"])
-        prompt += "- " + profile["name"] + " programador " + profile["type"] + " con experiencia de " + yearsExperience + "años y habilidades en " + ", ".join(profile["skills"]) + " y lenguajes de programación en " + ", ".join(profile["programmingLanguages"]) + "\n"
+        prompt += "- " + profile["name"] + " programador " + profile["type"] + " con experiencia de " + yearsExperience + " años y habilidades en " + ", ".join(profile["skills"]) + " y lenguajes de programación en " + ", ".join(profile["programmingLanguages"]) + "\n"
 
     #Add question to prompt
-    prompt += "\nEscoge el mejor programador candidato de acuerdo a su perfil para implementar cada historia de usuario, ten en cuenta si a este programador ya le haz asignado una historia de usuario.Forma tu respuesta como una lista de objetos json con las siguientes claves: La primera clave sera historia_usuario con valor numero historia de usuario, la segunda clave programadores_compatibilidad tendra como valor un parrafo con los nombres de los programadores con su porcentaje de compatibilidad frente a la historia de usuario, los porcentajes deben variar teniendo en cuenta años de experiencia y habilidades, y la tercera clave programador_elegido tendra como valor el nombre del programador elegido.Haz tu respuesta lo mas corta posible"
+    prompt += "\nEscoge el mejor programador candidato de acuerdo a su perfil para implementar cada historia de usuario.Forma tu respuesta como una lista de objetos json con las siguientes claves: La primera clave sera historia_usuario con valor numero historia de usuario, la segunda clave programadores_compatibilidad tendra como valor un parrafo con los nombres de los programadores con su porcentaje de compatibilidad frente a la historia de usuario, los porcentajes deben variar teniendo en cuenta años de experiencia y habilidades de cada programador, y la tercera clave programador_elegido tendra como valor el nombre del programador elegido, tenga en cuenta si al programador ya le ha asignado una historia de usuario.Haz tu respuesta lo mas corta posible"
 
     print("prompt que se le va a enviar a la OpenIA\n",prompt)
-    # search_model = f"text-davinci-003"
     response = connectionOpenIA(prompt)
 
     best_match = response.choices[0].text
+
+    print("best_match", best_match)
     print("respuesta IA",best_match[1:])
+
     json_object = json.loads(best_match[1:])
+    
     return json_object
 
 def connectionOpenIA(message:str):
